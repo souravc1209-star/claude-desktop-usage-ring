@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+    <title>Usage Ring · Offline Demo</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="../src/usage-ring.css">
+    <script src="../src/usage-ring.js" defer></script>
+    <script src="demo.js" defer></script>
+</head>
+<body>
+    <main>
+        <header class="page-header">
+            <p class="eyebrow">Offline portfolio demo</p>
+            <h1>Usage Ring</h1>
+            <p>See five-hour and weekly limits beside the composer’s Auto control. All values in this demo are simulated.</p>
+        </header>
+
+        <div class="layout">
+            <section class="stage" aria-label="Demo composer">
+                <div class="stage-label"><span class="stage-dot"></span> Composer preview</div>
+                <div class="stage-content">
+                    <p class="stage-title">Check your limits</p>
+                    <p class="stage-help">Open the ring beside Auto.</p>
+                </div>
+                <div id="composer-slot"></div>
+            </section>
+
+            <aside class="controls" aria-labelledby="controls-heading">
+                <h2 id="controls-heading">Demo controls</h2>
+                <label for="scenario">Usage scenario</label>
+                <select id="scenario">
+                    <option value="normal">Typical usage</option>
+                    <option value="near">Near the limit</option>
+                    <option value="reset">After a reset</option>
+                    <option value="missing">Partial data</option>
+                    <option value="error">Service unavailable</option>
+                    <option value="slow">Request timeout</option>
+                </select>
+                <label class="theme-toggle"><input id="dark-mode" type="checkbox"> Dark theme</label>
+                <button type="button" id="replace-composer">Rebuild composer</button>
+                <p class="control-help">Rebuild the toolbar to see the ring reattach after a UI change.</p>
+                <p id="demo-status" role="status"></p>
+            </aside>
+        </div>
+    </main>
+
+    <template id="composer-template">
+        <div class="composer">
+            <textarea rows="1" aria-label="Sample message" placeholder="Type a sample message here"></textarea>
+            <div class="composer-footer">
+                <span class="local-only">Local preview</span>
+                <div class="composer-toolbar group/chin-end"><span class="auto">Auto</span></div>
+            </div>
+        </div>
+    </template>
+</body>
+</html>
