@@ -1,11 +1,11 @@
 const { AxeBuilder } = require('@axe-core/playwright');
 const { test, expect } = require('./fixture.cjs');
 
-test('WCAG A and AA axe checks in light, dark, and unavailable states', async ({ page, demo }, testInfo) => {
+test('WCAG A and AA axe checks in light, dark, and unavailable states', async ({ browserName, page, demo }, testInfo) => {
+    test.skip(browserName !== 'chromium', 'Axe scans run in Chromium. Keyboard and layout tests cover every engine.');
     const { ring, panel, status, changeScenario } = demo;
     const check = async state => {
         const result = await new AxeBuilder({ page })
-            .setLegacyMode() // The demo has no frames, so run in its original document.
             .options({ preload: false }) // Use rendered styles under the demo's connection-blocking CSP.
             .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
         if (result.violations.length) {

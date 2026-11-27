@@ -16,7 +16,7 @@ The enhancement pass started from [`e136932`](https://github.com/souravc1209-sta
 
 The suite checks all six scenarios, optional values, invalid payloads, reset formatting and time zones, keyboard focus, touch dismissal in Chromium, and six viewport widths from 320 to 1,920 px. It also checks 200% root text scaling in a 640 px viewport, forced-colors rendering in Chromium, request cancellation, disposal, repeated mounts, and 25 composer rebuilds. This is a functional stress check. Formal latency, CPU, memory, and assistive-technology measurements remain open.
 
-The accessibility target is WCAG 2.2 Level AA. The suite runs axe rules tagged for WCAG 2.0 through 2.2 A and AA on light, dark, expanded, and unavailable states. It also exercises traversal without a keyboard trap, focus return, numerical labels, progressbar names and values, and loading and failure status content. Automated checks cover a subset of accessibility requirements. Screen-reader announcement timing and physical-device interaction require further evaluation. [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
+The accessibility target is WCAG 2.2 Level AA. Chromium runs axe rules tagged for WCAG 2.0 through 2.2 A and AA on light, dark, expanded, and unavailable states. The Playwright Firefox process crashed during repeated axe scans in the initial Windows and Ubuntu runs. Firefox and WebKit still run the keyboard and layout checks alongside Chromium. The suite exercises traversal without a keyboard trap, focus return, numerical labels, progressbar states, and loading and failure status content. Screen-reader announcement timing and physical-device interaction require further evaluation. [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
 
 ## Reproduce the checks
 
