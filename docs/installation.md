@@ -6,7 +6,7 @@ Open the [hosted demo](https://souravc1209-star.github.io/claude-desktop-usage-r
 
 ## Offline on Windows
 
-1. Download the repository ZIP from **Code → Download ZIP** and extract the entire folder. A local clone works too.
+1. Download the offline ZIP from [GitHub Releases](https://github.com/souravc1209-star/claude-desktop-usage-ring/releases/latest) and extract the entire folder. The release provides a SHA-256 checksum. A local clone or **Code → Download ZIP** works too.
 2. Open `demo/index.html` from the extracted folder in Microsoft Edge or Google Chrome. From PowerShell, run this command from the repository root.
 
    ```powershell
@@ -15,7 +15,7 @@ Open the [hosted demo](https://souravc1209-star.github.io/claude-desktop-usage-r
 
 3. Click the ring beside **Auto**. Try the scenario selector and the **Rebuild composer** button.
 
-Keep `demo/` and `src/` in the original folder structure. Closing the tab ends the demo. No Windows settings or application files are changed.
+Keep `demo/` and `src/` in the original folder structure. Closing the tab ends the demo. The browser reads the project files locally.
 
 ## Configure a local copy
 
@@ -28,5 +28,6 @@ Edit `demo/demo.js` to change the synthetic percentages, reset offsets, and simu
 | `planLabel` | Label displayed in the panel. Defaults to `Sample data`. |
 | `timeoutMs` | Maximum wait for a usage read. Defaults to 4,000 ms in the widget. The demo uses 1,200 ms. |
 | `locale`, `timeZone` | Override browser defaults for formatting reset times and the updated time. |
+| `categories`, `warningAt`, `criticalAt` | Configure limit categories and ring color thresholds. See the [reusable widget example](widget.md). |
 
 The demo advances its synthetic reset times relative to the current time at each refresh. To run the browser tests or generate captures with a fixed clock, see [Validation and privacy review](review.md).

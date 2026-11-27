@@ -1,0 +1,24 @@
+{
+  "name": "claude-desktop-usage-ring",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An offline usage ring demo and engineering case study for Claude Desktop.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souravc1209-star/claude-desktop-usage-ring.git"
+  },
+  "homepage": "https://souravc1209-star.github.io/claude-desktop-usage-ring/demo/",
+  "bugs": "https://github.com/souravc1209-star/claude-desktop-usage-ring/issues",
+  "license": "MIT",
+  "engines": { "node": "^24.0.0 || ^26.0.0" },
+  "scripts": {
+    "test": "npm run validate && playwright test",
+    "test:smoke": "playwright test smoke lifecycle",
+    "test:a11y": "playwright test accessibility",
+    "validate": "node --check src/usage-ring.js && node --check demo/demo.js && node scripts/validate.cjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.1",
+    "@playwright/test": "1.65.1"
+  }
+}

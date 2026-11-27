@@ -1,33 +1,45 @@
 # Usage Ring for Claude Desktop
 
-An independent Windows engineering case study and interactive browser demo. The original proof of concept placed a small usage ring beside **Auto** in the Claude Desktop composer. Open it to see the five-hour allowance, weekly limits, and reset times at a glance.
+[![CI](https://github.com/souravc1209-star/claude-desktop-usage-ring/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/souravc1209-star/claude-desktop-usage-ring/actions/workflows/ci.yml) [![MIT license](https://img.shields.io/badge/license-MIT-287455)](LICENSE) [![Latest release](https://img.shields.io/github/v/release/souravc1209-star/claude-desktop-usage-ring)](https://github.com/souravc1209-star/claude-desktop-usage-ring/releases/latest)
 
-[Try the interactive demo](https://souravc1209-star.github.io/claude-desktop-usage-ring/demo/) · [Run locally](docs/installation.md) · [Read the technical case study](docs/case-study.md)
+See five-hour and weekly usage beside the chat composer. This independent portfolio project recreates a Windows proof of concept as a browser demo with simulated data. It has no account or installation requirement.
 
-![Usage Ring open beside the Auto control in a light composer. The sample panel shows 42% five-hour usage, 67% weekly usage, and 28% weekly Opus usage.](media/typical-usage.png)
+**[Try the interactive demo](https://souravc1209-star.github.io/claude-desktop-usage-ring/demo/)** · [Run offline](docs/installation.md) · [Engineering case study](docs/case-study.md)
 
-## Try it
+![An open usage panel beside Auto. The light-theme composer shows 42% five-hour usage, 67% weekly usage, and 28% weekly Opus usage.](media/typical-usage.png)
 
-1. Open the ring beside **Auto**. Its color and fill reflect the higher of the five-hour and all-model weekly percentages.
-2. Switch the usage scenario to see a near-limit state, a reset, partial data, a service error, or a timeout. Choose **Refresh** in the panel to repeat the current scenario.
-3. Switch to **Dark theme** or choose **Rebuild composer** to see the ring reattach when the toolbar is replaced. Any text in the sample composer stays in the browser tab.
+## What it shows
 
-[Watch the demonstration GIF](media/demo.gif) · [View the dark-theme screenshot](media/near-limit-dark.png)
+Checking usage in Settings interrupted writing. The prototype put one ring beside **Auto**, using the larger of the two primary percentages. Opening it shows the individual limits, progress bars, optional model breakdown, and reset times.
 
-## Prototype and public demo
+- Try six scenarios, including normal use, a near-limit state, a reset, partial data, an unavailable service, and a timeout.
+- Use **Refresh** and **Close** with a mouse, touch, or the keyboard. Toggle the theme and choose **Rebuild composer** to see the ring reattach while preserving the local draft.
+- Reuse the widget with your own usage categories, thresholds, and authorized data source. [Widget integration example](docs/widget.md)
 
-The working Windows prototype used a PowerShell launcher, Windows UI Automation, native keyboard events, and a Chromium DevTools Snippet. The snippet read account usage through an undocumented, signed-in Claude interface. The launcher operated at the window level and the snippet rendered the indicator in the current composer. That integration depended on an unsupported interface, window titles, focus, shortcut behavior, and the current composer DOM.
+[Watch the demonstration GIF](media/demo.gif) · [Dark theme](media/near-limit-dark.png) · [Partial data](media/partial-data.png) · [Narrow layout](media/narrow-layout.png)
 
-This repository contains a standalone recreation of the widget and a local simulator. It runs in an ordinary browser with synthetic data. It includes no Claude credentials, signed-in requests, or desktop automation. For actual account figures, use **Settings → Usage** in Claude. [Claude Help Center](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
+## The Windows prototype and the offline demo
 
-| Location | Contents |
-| --- | --- |
-| [`src/`](src/) | Ring, panel, rendering, refresh, and DOM lifecycle |
-| [`demo/`](demo/) | Sample composer, theme controls, and simulated usage provider |
-| [`tests/`](tests/) | Browser smoke test and capture mode |
-| [`docs/`](docs/) | Setup, troubleshooting, case study, and publication review |
-| [`media/`](media/) | Screenshots and GIF captured from the offline demo |
+The original prototype used PowerShell, Windows UI Automation, window handles, native keyboard events, and a Chromium DevTools Snippet. It depended on an undocumented, authenticated Claude interface, a compatible package and renderer, detached DevTools, and Windows foreground-focus behavior. The published demo runs the widget in a sample composer. It supplies synthetic data through an injectable loader and has no desktop automation.
 
-[Troubleshooting](docs/troubleshooting.md) · [Validation and privacy review](docs/review.md) · [Changelog](CHANGELOG.md)
+The renderer validates percentages and reset times, ignores results from superseded reads, and reattaches after DOM changes. The simulator, widget, and browser tests live in `demo/`, `src/`, and `tests/`. For real usage, open **Settings → Usage** in Claude. [Claude Help Center](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 
-The project was developed with AI assistance. The project owner built and exercised the original prototype. AI assistance was used in developing the prototype and in preparing the offline edition, tests, and documentation. This project is unaffiliated with Anthropic. The name Claude Desktop identifies the application studied and the demo uses original artwork and interface styling. The [MIT License](LICENSE) applies to the project’s original materials.
+## Run or develop locally
+
+Open `demo/index.html` from a local copy of the repository to use the demo. To run the validation suite with Node.js 24 or 26 LTS:
+
+```sh
+npm ci
+npx playwright install
+npm test
+```
+
+Linux contributors can use `npx playwright install --with-deps`. The browser demo has no npm runtime dependencies. [Installation](docs/installation.md) · [Contributing](CONTRIBUTING.md) · [Troubleshooting](docs/troubleshooting.md)
+
+## Verification and scope
+
+GitHub Actions exercises Playwright Chromium, Firefox, and WebKit on Ubuntu plus Chromium on Windows. The suite checks keyboard behavior, responsive layouts, the six scenarios, DOM reattachment, cancellation, and WCAG-tagged axe rules. Engine coverage does not establish native Safari, mobile device, screen-reader, or Windows launcher compatibility. See the [browser and accessibility review](docs/review.md).
+
+The demo neither submits nor stores the sample draft. The installed prototype stays local and the public runtime has no authenticated requests or analytics. [Privacy and legal review](docs/review.md#anthropic-terms-review) · [Security reporting](SECURITY.md) · [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md)
+
+The owner built and exercised the original prototype with AI assistance. AI tools also assisted the offline implementation, tests, documentation, and review. This is an unofficial project unaffiliated with Anthropic. The [MIT license](LICENSE) covers the project’s original materials.

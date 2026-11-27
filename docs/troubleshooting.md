@@ -10,6 +10,6 @@
 | Reset times differ from the screenshots | The demo formats synthetic reset times using the browser’s locale and time zone. The captures use a fixed date and UTC for consistency. |
 | You want to see real account usage | Open Claude’s **Settings → Usage** screen. [Claude Help Center](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work) |
 
-**Keyboard controls.** Tab to the ring and press Enter or Space to open the panel. Focus moves to **Refresh**. Escape closes the panel and returns focus to the ring.
+**Keyboard controls.** Tab to the ring and press Enter or Space. Focus moves to **Refresh**. Activate **Close** or press Escape to restore focus to the ring. Tabbing past the panel closes it and moves focus to the next page control.
 
 When reporting a demo issue, include the browser version, the selected scenario, and the steps to reproduce. Use captures from the offline demo when attaching images.

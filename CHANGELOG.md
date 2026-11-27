@@ -5,7 +5,9 @@
 - Recreated the prototype’s composer-adjacent ring, five-hour and weekly progress bars, reset times, and optional model rows using simulated data.
 - Added six scenarios, a dark theme, an explicit refresh control, and a composer rebuild that demonstrates DOM reattachment.
 - Added bounded reads, cancellation of superseded reads, keyboard focus handling, viewport-aware panel placement, and idempotent mount and cleanup.
-- Added documentation, browser smoke tests, and offline demo captures.
+- Added accessible progress bars, an explicit close control, improved contrast, and larger hit targets.
+- Added configurable limit categories and thresholds with a small standalone integration example.
+- Added reproducible test dependencies, browser and accessibility CI on Ubuntu and Windows, contributor guidance, and verified demo captures.
 
 ## Earlier Windows prototype
 

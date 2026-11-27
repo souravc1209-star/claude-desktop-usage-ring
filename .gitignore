@@ -1,5 +1,18 @@
 /.local/
 /node_modules/
+/playwright-report/
+/test-results/
+.env
+.env.*
+.npmrc
 *.log
+*.har
+*.bak
+*.backup
+*.before-*
+*.zip
+**/Preferences
+**/Secure Preferences
+**/Cookies
 *.local.js
 *.local.ps1
