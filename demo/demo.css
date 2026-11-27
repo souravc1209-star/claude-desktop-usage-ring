@@ -6,10 +6,11 @@
     --ink: #202527;
     --muted: #526065;
     --border: #d6d9d5;
+    --input-border: #788482;
     --track: #dce3e5;
     --accent: #285744;
     --focus: #236bc0;
-    font: 15px/1.55 system-ui, sans-serif;
+    font: 100%/1.55 system-ui, sans-serif;
 }
 
 :root[data-theme="dark"] {
@@ -20,9 +21,13 @@
     --ink: #f0efea;
     --muted: #c1cbca;
     --border: #485457;
+    --input-border: #8e9d9a;
     --track: #455054;
     --accent: #a6dcc6;
     --focus: #9bc7ff;
+    --usage-normal: #85baff;
+    --usage-warning: #ffbf72;
+    --usage-critical: #ff9090;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -52,12 +57,16 @@ h1 { margin: 0; font: 600 clamp(38px, 6vw, 64px)/1.06 Georgia, serif; letter-spa
 .controls label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; }
 select, button { border: 1px solid var(--border); border-radius: 7px; background: var(--surface); color: var(--ink); font: inherit; }
 button, select { cursor: pointer; }
-.controls select, .controls button { width: 100%; padding: 7px 8px; font-size: 13px; }
-.controls .theme-toggle { display: flex; gap: 7px; align-items: center; margin: 16px 0; }
+.controls select, .controls button { width: 100%; min-height: 36px; padding: 7px 8px; border-color: var(--input-border); font-size: .875rem; }
+.controls .theme-toggle { display: flex; min-height: 28px; gap: 7px; align-items: center; margin: 16px 0; cursor: pointer; }
 input[type="checkbox"] { accent-color: var(--accent); }
 .control-help, #demo-status { color: var(--muted); font-size: 12px; }
 .control-help { margin: 8px 0 0; }
-#demo-status:empty { display: none; }
+#demo-status:empty { margin: 0; }
+.page-footer { margin-top: 20px; color: var(--muted); font-size: .82rem; }
+.page-footer p { margin: 8px 0 0; }
+.page-footer nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.page-footer a { color: var(--accent); }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
 @media (max-width: 670px) {

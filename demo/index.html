@@ -9,7 +9,7 @@
     <meta property="og:image" content="https://souravc1209-star.github.io/claude-desktop-usage-ring/media/social-preview.png">
     <meta property="og:image:alt" content="Usage Ring for Claude Desktop and an open sample usage panel in a dark composer.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
     <title>Usage Ring · Offline Demo</title>
     <link rel="stylesheet" href="demo.css">
     <link rel="stylesheet" href="../src/usage-ring.css">
@@ -51,6 +51,13 @@
                 <p id="demo-status" role="status"></p>
             </aside>
         </div>
+        <footer class="page-footer">
+            <nav aria-label="Project links">
+                <a href="https://github.com/souravc1209-star/claude-desktop-usage-ring">Source on GitHub</a>
+                <a href="https://github.com/souravc1209-star/claude-desktop-usage-ring/blob/main/docs/case-study.md">Engineering case study</a>
+            </nav>
+            <p>v1.0.0 · Independent project, unaffiliated with Anthropic. Draft text stays in this tab.</p>
+        </footer>
     </main>
 
     <template id="composer-template">
